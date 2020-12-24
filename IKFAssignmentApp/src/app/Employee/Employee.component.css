@@ -1,0 +1,13 @@
+.label{
+    color:black;
+    font-size: 14px;
+}
+.padding-sm{
+    padding:10px;
+}
+.textCenter{
+    text-align: center;
+}
+.textRight{
+    text-align: right;
+}

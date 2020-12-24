@@ -1,0 +1,90 @@
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 padding-sm textRight">
+                <button class="btn btn-primary" (click)="onAddNewClick(form);">Add New</button>
+            </div>
+            <div class="col-md-12">
+                <input type="hidden" name="EditUserID" id="EditUserID" value="{{UserEdit}}">
+                <table border="1" cellspacing="0" cellpadding="0" class="table">
+                    <tbody>
+                        <tr>
+                            <th class="textCenter hide">UserID</th>
+                            <th class="textCenter">Name</th>
+                            <th class="textCenter">Designation</th>
+                            <th class="textCenter">Skills</th>
+                            <th class="textCenter">Date of Birth</th>
+                            <th class="textCenter">
+                                Edit
+                            </th>
+                            <th class="textCenter">Delete</th>
+                        </tr>
+                        <tr *ngFor="let emplyee of employees;index as i">
+                            <td class="hide"> {{emplyee.UserID}}</td>
+                            <td>{{emplyee.Name}}</td>
+                            <td>{{emplyee.Designation}}</td>
+                            <td> 
+                                <select class="form-control">
+                                    <option *ngFor="let skill of employees[i].SkillSet">
+                                        {{skill}}
+                                    </option>
+                                </select>
+                            </td>
+                            <td>{{emplyee.DOB}}</td>
+                            <td><button class="btn btn-primary" value="Edit" (click)="onEditClick($event,i,form);">Edit</button></td>
+                            <td><button class="btn btn-primary btn-danger" value="Delete" (click)="onDeleteClick($event,i,form);">Delete</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <form #form="ngForm" (ngSubmit)="onSaveClick(form)"> 
+            <div class="row">
+                <div class="container">
+                    <div class="col-md-12 padding-sm">
+                        <div class="col-sm-2">
+                            <label class="label">Name:</label>
+                        </div>
+                        <div class="col-sm-8">
+                            <input type="text" placeholder="Name" id="txtName" name="Name" class="form-control" ngModel>
+                        </div>
+                    </div>
+                    <div class="col-md-12 padding-sm">
+                        <div class="col-sm-2">
+                            <label class="label">Designation:</label>
+                        </div>
+                        <div class="col-sm-8">
+                            <input type="text" name="Designation" id="txtDesignation" placeholder="enter designation" class="form-control" ngModel>
+                        </div>
+                    </div>
+                    <div class="col-md-12 padding-sm">
+                        <div class="col-sm-2">
+                            <label class="label">Skills:</label>
+                        </div>
+                        <div class="col-sm-8">
+                            <input type="text" name="Skills" id="txtSkills" placeholder="enter skills" class="form-control" ngModel>
+                        </div>
+                    </div>
+                    <div class="col-md-12 padding-sm">
+                        <div class="col-sm-2">
+                            <label class="label">Date of Birth:</label>
+                        </div>
+                        <div class="col-sm-8">
+                            <input type="text" name="DateOfBirth" id="txtDOB" placeholder="enter date of birth" class="form-control" ngModel>
+                        </div>
+                    </div>
+                    <div class="col-md-12 padding-sm">
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-1 padding-sm">
+                            <input type="submit" name="btnSave" id="btnSave" value="Save" class="btn btn-primary btn-success">
+                        </div>
+                        <div class="col-sm-1 padding-sm">
+                            <input type="submit" name="btnCancel" id="btnCancel" value="Cancel" usesubmitbehaviour="false" class="btn btn-primary" (click)="onAddNewClick(form);">
+                        </div>
+                        <div class="col-sm-4"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
