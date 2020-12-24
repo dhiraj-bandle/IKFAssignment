@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IKFModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="IKFModelStoreContainer">
+    <EntitySet Name="Employees" EntityType="IKFModel.Store.Employees" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="DOB" />
+      <PropertyRef Name="Designation" />
+      <PropertyRef Name="Skills" />
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="DOB" Type="datetime" Nullable="false" />
+    <Property Name="Designation" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Skills" Type="nvarchar" Nullable="false" MaxLength="500" />
+  </EntityType>
+</Schema>
